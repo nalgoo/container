@@ -2,7 +2,7 @@ Install
 =======
 
 ```
-composer require nalgoo/container
+composer require nalgoo/return-type-container
 ```
 
 Usage
