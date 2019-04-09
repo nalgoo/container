@@ -62,15 +62,19 @@ trait ReturnTypeContainerTrait
 			$reflectionClass = new \ReflectionClass($this);
 
 			foreach ($reflectionClass->getMethods(\ReflectionMethod::IS_PUBLIC) as $reflectionMethod) {
-				$returnType = $reflectionMethod->getReturnType()->getName();
-
-				if (array_key_exists($returnType, $this->discoveredReturnTypes)) {
+				if (!$returnType = $reflectionMethod->getReturnType()) {
+					continue;
+				}
+				
+				$returnTypeName = $returnType->getName();
+				
+				if (array_key_exists($returnTypeName, $this->discoveredReturnTypes)) {
 					throw new \RuntimeException(
-						sprintf('Entry with return type of "%s" is defined more than once', $returnType)
+						sprintf('Entry with return type of "%s" is defined more than once', $returnTypeName)
 					);
 				}
 
-				$this->discoveredReturnTypes[$returnType] = $reflectionMethod->getName();
+				$this->discoveredReturnTypes[$returnTypeName] = $reflectionMethod->getName();
 			}
 		}
 	}
