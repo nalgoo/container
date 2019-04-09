@@ -12,7 +12,7 @@ trait ReturnTypeContainerTrait
 	 *
 	 * @var array|null
 	 */
-	protected $discoveredReturnTypes = [];
+	protected $discoveredReturnTypes;
 
 	/**
 	 * Finds an entry of the container by its identifier and returns it.
