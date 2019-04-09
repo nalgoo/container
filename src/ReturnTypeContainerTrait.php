@@ -58,6 +58,7 @@ trait ReturnTypeContainerTrait
 	protected function discoverReturnTypes()
 	{
 		if (!is_array($this->discoveredReturnTypes)) {
+			$this->discoveredReturnTypes = [];
 
 			$reflectionClass = new \ReflectionClass($this);
 
