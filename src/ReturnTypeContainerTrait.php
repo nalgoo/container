@@ -27,7 +27,7 @@ trait ReturnTypeContainerTrait
 	public function get($id)
 	{
 		if (!$this->has($id)) {
-			throw new NotFoundException();
+			throw new NotFoundException(sprintf('Entry with return type of "%s" was not found', $id));
 		}
 
 		return call_user_func([$this, $this->discoveredReturnTypes[$id]]);
