@@ -1,5 +1,5 @@
 {
-  "name": "nalgoo/container",
+  "name": "nalgoo/return-type-container",
   "type": "library",
   "require": {
     "psr/container": "^1.0"
